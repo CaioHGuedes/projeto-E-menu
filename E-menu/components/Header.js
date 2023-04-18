@@ -1,4 +1,11 @@
-import { View, Text, StyleSheet, Image, TextInput } from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TextInput,
+  TouchableHighlight
+} from 'react-native'
 import React from 'react'
 import logo from '../assets/LOGO.png'
 import { Ionicons } from '@expo/vector-icons'
@@ -7,9 +14,19 @@ export default function Header() {
   return (
     <View style={styles.headerContainer}>
       <Image style={styles.headerImage} source={logo} />
+      <Ionicons
+        style={{ position: 'absolute', right: 15, top: 5 }}
+        name="menu"
+        size={35}
+        color="white"
+      />
       <View style={styles.searchContainer}>
-        <Ionicons name="search-sharp" size={18} color="white" />
-        <TextInput placeholder="buscar..." style={styles.textInput} />
+        <Ionicons name="search-sharp" size={15} color="white" />
+        <TextInput
+          placeholder="buscar..."
+          placeholderTextColor="white"
+          style={styles.textInput}
+        />
       </View>
     </View>
   )
@@ -18,21 +35,17 @@ export default function Header() {
 const styles = StyleSheet.create({
   headerContainer: {
     backgroundColor: '#000000',
-    height: 200,
+    height: 140,
     width: '100%',
     borderRadius: 27,
     alignItems: 'center',
-    shadowColor: '#52006A',
-    elevation: 20
-  },
-
-  headerText: {
-    color: 'white'
+    shadowColor: '#420400',
+    elevation: 50
   },
 
   headerImage: {
     flex: 0.9,
-    width: 130,
+    width: 100,
     height: 10,
     resizeMode: 'center'
   },
@@ -42,7 +55,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 1,
     borderColor: '#777',
-    padding: 3,
+    padding: 2,
     paddingLeft: 13,
     //margin: 5,
     width: 250,
@@ -51,6 +64,7 @@ const styles = StyleSheet.create({
 
   textInput: {
     color: 'white',
-    marginLeft: 3
+    width: '100%',
+    marginLeft: 12
   }
 })

@@ -6,10 +6,17 @@ import Card from './components/Card'
 export default function App() {
   return (
     <ScrollView style={styles.container}>
-      <StatusBar style="auto" />
     <View>
       <Header/>
     </View>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
+      <Card/>
       <Card/>
       <Card/>
       <Card/>
@@ -52,7 +59,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#bc1b18',
+    backgroundColor: '#111111',
    // alignItems: 'center'
     // justifyContent: 'center',
   }
