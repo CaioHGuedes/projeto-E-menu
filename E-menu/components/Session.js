@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 
-export default function Session({title}) {
+export default function Session({ title }) {
   return (
     <View style={styles.sessionContainer}>
       <Text style={styles.sessionText}>{title}</Text>
@@ -17,8 +17,8 @@ const styles = StyleSheet.create({
   },
 
   sessionText: {
-    color:'white',
+    color: 'white',
     fontSize: 23,
-    fontWeight:'bold'
+    fontWeight: 'bold'
   }
 })
