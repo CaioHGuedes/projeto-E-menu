@@ -1,7 +1,6 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
 import React, { useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
-import pizzaImage from '../assets/Pizza.jpg'
 
 export default function Card({ item }) {
   const [quantidade, setQuantidade] = useState(0)
@@ -16,12 +15,20 @@ export default function Card({ item }) {
 
   return (
     <View style={styles.cardContainer}>
-      <Image style={{ width: '100%', height: 100 }} source={pizzaImage} />
+      <Image style={{ width: '100%', height: 100 }} source={item.image} />
       <View style={{ padding: 10 }}>
         <Text style={styles.titleText}>{item.name}</Text>
         <Text style={styles.descriptionText}>{item.description}</Text>
+        <Text style={styles.valueText}>{item.value}</Text>
       </View>
-      <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop:'auto', marginBottom: 10 }}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          marginTop: 'auto',
+          marginBottom: 10
+        }}
+      >
         <TouchableOpacity
           style={[styles.buttons, styles.leftButton]}
           onPress={() => handleClick('remove')}
@@ -62,6 +69,12 @@ const styles = StyleSheet.create({
   descriptionText: {
     fontSize: 10,
     color: 'white'
+  },
+
+  valueText: {
+    fontSize: 20,
+    color: 'white',
+    marginTop: 60
   },
 
   buttons: {
