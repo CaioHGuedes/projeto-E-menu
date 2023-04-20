@@ -4,13 +4,9 @@ O projeto tem como finalidade a criação de um cardápio virtual, de fácil ace
 
 ## Funcionalidades
 
----
-
 O aplicativo atualmente possui as seguintes funcionalidades: lista dos produtos oferecidos pelo estabelecimento, quantidade desejada e uma barra de pesquisa funcional.
 
 ## Como usar
-
----
 
 - Será preciso ter na sua máquina o gerenciador de pacotes: Yarn
 - Também será necessário baixar o Node.js na sua máquina
