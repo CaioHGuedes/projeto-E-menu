@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Ionicons } from '@expo/vector-icons'
 
-export default function Card({ item }) {
+export default function Card({ item, onAddProduct }) {
   const [quantidade, setQuantidade] = useState(0)
 
   const handleClick = type => {
@@ -10,8 +10,20 @@ export default function Card({ item }) {
       setQuantidade(quantidade + 1)
       return
     }
-    setQuantidade(quantidade - 1)
+    setQuantidade(quantidade ? quantidade - 1 : 0)
   }
+
+  useEffect(() => {
+    onAddProduct(item.name, quantidade)
+  }, [quantidade])
+
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'BRL',
+
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2
+  })
 
   return (
     <View style={styles.cardContainer}>
@@ -19,7 +31,7 @@ export default function Card({ item }) {
       <View style={{ padding: 10 }}>
         <Text style={styles.titleText}>{item.name}</Text>
         <Text style={styles.descriptionText}>{item.description}</Text>
-        <Text style={styles.valueText}>{item.value}</Text>
+        <Text style={styles.valueText}>{formatter.format(item.value)}</Text>
       </View>
       <View
         style={{
@@ -32,6 +44,7 @@ export default function Card({ item }) {
         <TouchableOpacity
           style={[styles.buttons, styles.leftButton]}
           onPress={() => handleClick('remove')}
+          disabled={!quantidade}
         >
           <Ionicons name="remove" size={24} color="black" />
         </TouchableOpacity>
