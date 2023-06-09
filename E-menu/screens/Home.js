@@ -16,7 +16,6 @@ export default function Home({ navigation }) {
   const [search, setSearch] = useState('')
   const [value, setValue] = useState(0)
   const [bill, setBill] = useState({})
-  console.log(bill)
 
   useEffect(() => {
     if (search) {
@@ -93,9 +92,7 @@ export default function Home({ navigation }) {
       </View>
       <TouchableOpacity
         style={styles.buttonContainer}
-        onPress={() =>
-          navigation.navigate('Cart', { value, setValue, bill, setBill })
-        }
+        onPress={() => navigation.navigate('Cart', { value, bill })}
       >
         <Text style={styles.buttonText}>Adicionar ao carrinho</Text>
       </TouchableOpacity>
